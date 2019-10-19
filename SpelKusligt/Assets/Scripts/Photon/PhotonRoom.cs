@@ -11,9 +11,9 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public static PhotonRoom room;
     private PhotonView pv;
 
-    public int currentScene;
     public int multiplayerScene;
-
+    private int currentScene;
+    
     private void Awake()
     {
         if(PhotonRoom.room == null)
@@ -29,6 +29,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
             }
         }
         DontDestroyOnLoad(this.gameObject);
+        pv = GetComponent<PhotonView>();
     }
 
     public override void OnEnable()
@@ -48,7 +49,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        pv = GetComponent<PhotonView>();
+        
     }
 
     public override void OnJoinedRoom()
