@@ -10,6 +10,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public GameObject searchButton;
     public GameObject cancelButton;
+    public GameObject onlineButton;
+    public GameObject offlineButton;
 
     private void Awake()
     {
@@ -27,7 +29,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         Debug.Log("Player has connected to the Photon master server");
         PhotonNetwork.AutomaticallySyncScene = true;
         searchButton.SetActive(true);
-        
+        onlineButton.SetActive(true);
+        offlineButton.SetActive(false);
     }
 
     public void OnSearchButtonClicked()
